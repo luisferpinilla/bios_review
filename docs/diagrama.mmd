@@ -1,0 +1,28 @@
+flowchart TD
+    %% Fase 1: Garantizar Consumo Diario
+    F1_Inicio([Inicio - Fase 1]) --> F1_VerificarInventario[Verificar días de inventario por ingrediente en cada planta]
+    F1_VerificarInventario -->|Inventario insuficiente| F1_SeleccionarPlantaIngrediente[Seleccionar planta e ingrediente con menor inventario]
+    F1_SeleccionarPlantaIngrediente --> F1_CalcularCostoNeto[Calcular el costo neto de despacho]
+    F1_CalcularCostoNeto --> F1_Despachar[Asignar camión más económico a despachar desde puerto a planta]
+    F1_Despachar --> F1_ActualizarInventario[Actualizar inventarios y material en puerto]
+    F1_ActualizarInventario --> F1_VerificarCondicion[¿Hay material despachable en puerto y con capacidad de recibirlo?]
+    F1_VerificarCondicion -->|Sí| F1_VerificarInventario
+    F1_VerificarCondicion -->|No| F2_Inicio
+
+    %% Fase 2: Asegurar Inventario de Seguridad
+    F2_Inicio([Inicio - Fase 2]) --> F2_VerificarSeguridad[¿Plantas cumplen inventario de seguridad?]
+    F2_VerificarSeguridad -->|No| F2_SeleccionarPlantaLejana[Seleccionar planta más lejos de su nivel de seguridad]
+    F2_SeleccionarPlantaLejana --> F2_CalcularCostoNeto[Calcular el costo neto de despacho]
+    F2_CalcularCostoNeto --> F2_Despachar[Obtener el despacho más económico]
+    F2_Despachar --> F2_ActualizarInventario[Asignar camión más económico a despachar desde puerto a planta]
+    F2_ActualizarInventario --> F2_VerificarSeguridad
+    F2_VerificarSeguridad -->|Sí| F3_Inicio
+
+    %% Fase 3: Nivelación de Inventarios
+    F3_Inicio([Inicio - Fase 3]) --> F3_ClasificarCostos[Clasificar despachos en Altos, Medios y Bajos]
+    F3_ClasificarCostos --> F3_SeleccionarDespacho[Seleccionar los despachos con costo Medio o Bajo]
+    F3_SeleccionarDespacho --> F3_Despachar[Asignar camión más económico a despachar desde puerto a planta]
+    F3_Despachar --> F3_ActualizarInventario[Actualizar inventarios y material en puerto]
+    F3_ActualizarInventario --> F3_VerificarCondicion[¿Hay material despachable o inventario nivelado?]
+    F3_VerificarCondicion -->|Sí| F3_SeleccionarDespacho
+    F3_VerificarCondicion -->|No| F3_Fin([Fin - Fase 3])
