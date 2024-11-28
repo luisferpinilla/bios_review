@@ -89,7 +89,7 @@ Revise las dependencias en el archivo packages.config o mediante el administrado
 - [Configuracion del Equipo de Desarrollo](./docs/configuracion_equipo_desarrollo.md)
 - [Requerimientos técnicos de la Aplicacion](./docs/requerimientos_tecnicos.md)
 - [Documentación del procedimiento de Solución](./docs/documentacion_tecnica_modelo.md)
--
+- [Tutorial sobre el uso de la aplicación](./docs/tutorial.md)
 
 ## ⚠️ Limitaciones de Uso
 
