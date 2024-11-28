@@ -100,10 +100,6 @@ El acceso al código está restringido exclusivamente al personal autorizado por
 ## 📧 Contacto
 Si tiene preguntas o necesita soporte durante la revisión, por favor contacta al desarrollador:
 
-- **Correo electrónico:** luisferpinilla@gmail.com
-
-- **Teléfono:** +57 312-4161731
-
 - **GitHub:** https://github.com/luisferpinilla
 
 ## 📝 Licencia
